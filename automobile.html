@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+      
+function  fourWheeler(){
+
+
+    this.type = "automobile";
+    this.wheel= 4;
+    this.start = function() {
+        console.log("the car is start");
+    }
+}
+
+     function car(model){
+        this.model = model;
+        this.drive = function(){
+            console.log("car is moving")
+        }
+     }
+      car.prototype = new fourWheeler();
+
+      let tata = new car("tata")
+
+      console.log(tata.type)
+      console.log(tata.wheel)
+
+       tata.start()
+       tata.drive()
+
+          /*-----------------object function-----------------/*
+
+     /* let fourWheeler ={
+        type: "Automobile",
+        wheel: 4,
+        start: function (){
+            console.log("engine start")
+        }
+      };
+
+      let car = Object.create(fourWheeler);
+      car.model = "tata"
+      car.drive = function(){
+        console.log("moving")
+      }
+
+      console.log(car.type);
+      console.log(car.drive);
+    
+      car.start()
+      car.drive()*/
+
+
+</script>
+
+</html>

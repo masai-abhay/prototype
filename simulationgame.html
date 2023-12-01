@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+function Vehicale(brand, model, speed, fueltype){
+
+    this.brand = brand;
+    this.model = model;
+    this.speed = speed;
+    this.fueltype = fueltype;
+
+}
+
+Vehicale.prototype.accelerate = function(){
+    this.speed += 10; 
+    
+};
+
+Vehicale.prototype.brake = function(){
+    this.speed-= 5;
+
+};
+
+Vehicale.prototype.refule = function(){
+    console.log("Refulling ");
+};
+
+  /*constructor function to creating car*/
+
+function car(brand,model,speed,fueltype,noofwheels){
+     
+    Vehicale.call(this,brand,model,speed,fueltype)
+   /* this.brand = brand;
+    this.model = model;
+    this.speed = speed;
+    this.fueltype= fueltype;*/
+    this.noofwheels = noofwheels
+};
+
+ Object.setPrototypeOf( car.prototype,Vehicale.prototype)
+ car.prototype.honk = function(){
+    console.log(this.brand,"sayy hooonnkkk hoonnkk")
+ }
+
+
+
+function Airplane(brand,model,speed, noofengines,haslandingear,noofwheels,fueltype){
+    Vehicale.call(this,brand,model,speed,fueltype)
+
+    this.noofenginesv= noofengines;
+    this.haslandingear = haslandingear;
+    this.noofwheels= noofwheels;
+}
+
+Object.setPrototypeOf(Airplane.prototype,Vehicale.prototype)
+
+Airplane.prototype.takeoff = function (){
+    console.log(this.brand,"taking off")
+
+};
+
+
+  
+  let car1 = new car ("tata",2022,0,'petrol',4);
+
+
+  let air = new Airplane("indigo",2012,0,"petrol", 9);
+
+  car1.accelerate()
+  car1.honk();
+  car1.brake()
+  car1.refule()
+  console.log(car1)
+
+  
+  air.accelerate();
+  air.accelerate();
+  air.brake()
+  air.refule()
+  console.log(air)
+
+</script>
+</html>
